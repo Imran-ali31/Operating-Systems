@@ -61,7 +61,7 @@ int main() {
 
     }
     avg_tt= (float)total_tt/n;
-    avg_tt= (float)total_wt/n;
+    avg_wt= (float)total_wt/n;
     cout<<"#P\tAT\tBT\tST\tCT\tTAT\tWT\n";
     for(int i=0;i<n;i++){
         cout<<p[i].pid<<'\t'<<p[i].att<<'\t'<<p[i].bt<<'\t'<<p[i].st<<'\t'<<p[i].ct<<'\t'<<p[i].tt<<'\t'<<p[i].wt<<endl;
