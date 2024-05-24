@@ -23,10 +23,9 @@ int main(){
         cout<<i+1<<"\t";
         cin>>p[i].att>>p[i].bt>>p[i].pri;
         p[i].pid = i+1;
-        p[i].rm= p[i].bt;
     }
     sort(p,p+n,comparePri);
-    int cur=0,pass=0,j=0;
+    int cur=0,pass=0;
     vector<bool>vis(n,0);
     while(pass!=n){
         int id=-1;
