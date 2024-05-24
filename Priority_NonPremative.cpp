@@ -29,23 +29,6 @@ int main(){
     int cur=0,pass=0,j=0;
     vector<bool>vis(n,0);
     while(pass!=n){
-            if(vis[j]){
-                j++;
-                continue;
-            }
-        if(p[j].att<=cur && !vis[j]){
-             if(p[j].st==0)p[j].st=cur;
-            p[j].ct=p[j].st+p[j].rm;
-            p[j].tt= p[j].ct-p[j].att;
-            p[j].wt=p[j].tt-p[j].bt;
-            total_tt += p[j].tt;
-            total_wt += p[j].wt;
-            vis[j]=1;
-            cur= p[j].ct;
-            pass++;
-            j++;
-            continue;
-        }
         int id=-1;
         for(int i=0;i<n;i++){
             if(p[i].att <=cur && !vis[i]){
@@ -54,21 +37,15 @@ int main(){
             }
         }
         if(id!=-1){
-                if(p[j].st==0)p[id].st=cur;
-                if(p[id].rm +cur >p[j].att){
-                    p[id].rm-=p[j].att;
-                    cur+=p[j].att;
-                }
-           else {
-                p[id].ct=p[id].st+cur+p[id].rm;
+            p[id].st=cur;
+            p[id].ct=p[id].st+p[id].bt;
             p[id].tt= p[id].ct-p[id].att;
             p[id].wt=p[id].tt-p[id].bt;
             total_tt += p[id].tt;
             total_wt += p[id].wt;
             vis[id]=1;
-            cur= cur+p[id].rm;
+            cur= p[id].ct;
             pass++;
-           }
         }
         else cur++;
 
